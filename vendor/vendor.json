@@ -135,16 +135,16 @@
 			"revisionTime": "2016-06-27T17:00:12Z"
 		},
 		{
-			"checksumSHA1": "gO0dj0NqsmBTkf4D0JzJDtOEx+U=",
+			"checksumSHA1": "/t1kyFHHcqE/fUrjgdw9X8PlrqQ=",
 			"path": "github.com/go-macaron/session",
-			"revision": "b8e286a0dba8f4999042d6b258daf51b31d08938",
-			"revisionTime": "2017-03-20T17:22:09Z"
+			"revision": "cdb0ddf74421e2bbc43443789c46540f5235a71a",
+			"revisionTime": "2018-12-05T00:27:18Z"
 		},
 		{
-			"checksumSHA1": "jVW5CmzplA0UDjai0AFYJFVXAJk=",
+			"checksumSHA1": "AGaED15nGifQkpU2bpU9Kgd7O4A=",
 			"path": "github.com/go-macaron/session/redis",
-			"revision": "66031fcb37a0fff002a1f028eb0b3a815c78306b",
-			"revisionTime": "2015-10-14T03:41:01Z"
+			"revision": "cdb0ddf74421e2bbc43443789c46540f5235a71a",
+			"revisionTime": "2018-12-05T00:27:18Z"
 		},
 		{
 			"checksumSHA1": "VMRkwnbl0mKWWvK/62CnIlv1oOg=",
@@ -213,10 +213,16 @@
 			"revisionTime": "2017-03-01T03:54:11Z"
 		},
 		{
-			"checksumSHA1": "Ecc6Aicvu7GZe/cTRgG2TxQtOW4=",
+			"checksumSHA1": "CA3HFURFumAdGV4mY2vv1nGka1o=",
 			"path": "github.com/gogs/git-module",
-			"revision": "e55accd068eac1c9803754a776c22b1aeddc4602",
-			"revisionTime": "2018-08-17T15:03:56Z"
+			"revision": "dfc2c1e6d37744c84bf72e4649c87dec93eefffb",
+			"revisionTime": "2018-10-23T10:58:32Z"
+		},
+		{
+			"checksumSHA1": "zjkjsFMM7ML0rZBOLxMU2yxHxx4=",
+			"path": "github.com/gogs/go-gogs-client",
+			"revision": "2040be8569f298967623526418f718a86e725f9b",
+			"revisionTime": "2018-12-03T19:42:48Z"
 		},
 		{
 			"checksumSHA1": "GaJLoEuMGnP5ofXvuweAI4wx06U=",

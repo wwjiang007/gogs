@@ -125,7 +125,7 @@ There are 5 ways to install Gogs:
 
 - Thanks [Egon Elbre](https://twitter.com/egonelbre) for designing logo.
 - Thanks [Crowdin](https://crowdin.com/project/gogs) for sponsoring open source translation plan.
-- Thanks [DigitalOcean](https://www.digitalocean.com) for sponsoring VPS service.
+- Thanks [DigitalOcean](https://www.digitalocean.com) and [VPSServer](https://www.vpsserver.com/) for sponsoring VPS service.
 - Thanks [KeyCDN](https://www.keycdn.com/) for sponsoring CDN service.
 
 ## Contributors
@@ -136,3 +136,5 @@ There are 5 ways to install Gogs:
 ## License
 
 This project is under the MIT License. See the [LICENSE](https://github.com/gogs/gogs/blob/master/LICENSE) file for the full license text.
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgogs%2Fgogs.svg?type=small)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgogs%2Fgogs?ref=badge_small)
