@@ -1,4 +1,4 @@
-// +build go1.7
+// +build go1.8
 
 // Copyright 2014 The Gogs Authors. All rights reserved.
 // Use of this source code is governed by a MIT-style
@@ -16,7 +16,7 @@ import (
 	"github.com/gogs/gogs/pkg/setting"
 )
 
-const APP_VER = "0.11.79.1211"
+const APP_VER = "0.11.88.0627"
 
 func init() {
 	setting.AppVer = APP_VER

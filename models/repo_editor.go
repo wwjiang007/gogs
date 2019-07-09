@@ -13,6 +13,7 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/Unknwon/com"
@@ -326,6 +327,10 @@ func (upload *Upload) LocalPath() string {
 
 // NewUpload creates a new upload object.
 func NewUpload(name string, buf []byte, file multipart.File) (_ *Upload, err error) {
+	if tool.IsMaliciousPath(name) {
+		return nil, fmt.Errorf("malicious path detected: %s", name)
+	}
+
 	upload := &Upload{
 		UUID: gouuid.NewV4().String(),
 		Name: name,
@@ -438,6 +443,11 @@ type UploadRepoFileOptions struct {
 	Files        []string // In UUID format
 }
 
+// isRepositoryGitPath returns true if given path is or resides inside ".git" path of the repository.
+func isRepositoryGitPath(path string) bool {
+	return strings.HasSuffix(path, ".git") || strings.Contains(path, ".git"+string(os.PathSeparator))
+}
+
 func (repo *Repository) UploadRepoFiles(doer *User, opts UploadRepoFileOptions) (err error) {
 	if len(opts.Files) == 0 {
 		return nil
@@ -467,14 +477,19 @@ func (repo *Repository) UploadRepoFiles(doer *User, opts UploadRepoFileOptions) 
 	dirPath := path.Join(localPath, opts.TreePath)
 	os.MkdirAll(dirPath, os.ModePerm)
 
-	// Copy uploaded files into repository.
+	// Copy uploaded files into repository
 	for _, upload := range uploads {
 		tmpPath := upload.LocalPath()
-		targetPath := path.Join(dirPath, upload.Name)
 		if !com.IsFile(tmpPath) {
 			continue
 		}
 
+		// Prevent copying files into .git directory, see https://github.com/gogs/gogs/issues/5558.
+		if isRepositoryGitPath(upload.Name) {
+			continue
+		}
+
+		targetPath := path.Join(dirPath, upload.Name)
 		if err = com.Copy(tmpPath, targetPath); err != nil {
 			return fmt.Errorf("copy: %v", err)
 		}

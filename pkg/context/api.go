@@ -17,12 +17,16 @@ import (
 )
 
 type APIContext struct {
-	*Context
+	*Context // TODO: Reduce to only needed fields instead of full shadow
+
+	// Base URL for the version of API endpoints, e.g. https://try.gogs.io/api/v1
+	BaseURL string
+
 	Org *APIOrganization
 }
 
 // FIXME: move to github.com/gogs/go-gogs-client
-const DOC_URL = "https://github.com/gogs/go-gogs-client/wiki"
+const DOC_URL = "https://github.com/gogs/docs-api"
 
 // Error responses error message to client with given message.
 // If status is 500, also it prints error to log.
@@ -96,6 +100,7 @@ func APIContexter() macaron.Handler {
 	return func(ctx *Context) {
 		c := &APIContext{
 			Context: ctx,
+			BaseURL: setting.AppURL + "api/v1",
 		}
 		ctx.Map(c)
 	}
